@@ -29,7 +29,8 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-impl-qti \
+    android.hardware.boot@1.0-impl-qti-recovery \
     android.hardware.boot@1.0-service
 
 PRODUCT_PACKAGES += \
@@ -66,4 +67,5 @@ TARGET_SCREEN_HEIGHT := 2400
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
+    android.hardware.fastboot@1.0-impl-mock.recovery \
     fastbootd
