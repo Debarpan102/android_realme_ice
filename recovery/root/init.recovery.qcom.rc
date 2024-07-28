@@ -24,6 +24,10 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
+
+
+import /init.recovery.qcom_decrypt.rc
+
 on early-init
     start linkblobs
 
@@ -43,11 +47,12 @@ on property:ro.boot.usbcontroller=*
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    # mount firmware
     mkdir /firmware
-    mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro
+    mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware_mnt ro
 
-import /init.recovery.qcom_decrypt.rc
-
+on boot
+    start health-hal-2-1
 
 service linkblobs /system/bin/linkblobs.sh
     user root
