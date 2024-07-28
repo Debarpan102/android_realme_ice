@@ -36,13 +36,21 @@ on init
     setprop sys.usb.configfs 1
     setprop prepdecrypt.loglevel 2
     setprop prepdecrypt.setpatch true
-    
+    # Touchpanel adaption
+    write /proc/touchpanel/tp_fw_update 0
+
+on property:twrp.modules.loaded=true
+    # Load ADSP firmware for PMIC
+    write /sys/kernel/boot_adsp/boot 1
+    wait /sys/class/power_supply/battery
 
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
     write /sys/class/udc/${ro.boot.usbcontroller}/device/../mode peripheral
-    ro.boot.fastboot=1
 
+on property:ro.boot.fastboot=1
+    prepdecrypt.system_mounted
+    prepdecrypt.vendor_mounted
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
