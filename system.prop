@@ -9,3 +9,9 @@ ro.hardware.gatekeeper=mdfpp
 
 # USB
 vendor.usb.use_ffs_mtp=1
+
+# Load correct vintf manifest from vendor partition
+ro.boot.product.vendor.sku=yupik
+
+# Disable SPU usage
+vendor.gatekeeper.disable_spu=true
