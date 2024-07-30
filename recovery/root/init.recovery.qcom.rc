@@ -58,6 +58,11 @@ on fs
     # Mount firmware
     mkdir /firmware
     mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware_mnt ro
+    # Mount persist for decryption
+    mkdir /mnt/vendor/persist
+    mount ext4 /dev/block/by-name/persist /mnt/vendor/persist rw
+
+
 
 on boot
     start health-hal-2-1
