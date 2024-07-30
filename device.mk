@@ -10,6 +10,9 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 
+export FOX_AB_DEVICE=1
+
+
 LOCAL_PATH := device/realme/RMX3461
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
