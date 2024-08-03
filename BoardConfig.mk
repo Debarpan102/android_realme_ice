@@ -200,7 +200,8 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 TW_THEME := portrait_hdpi
 
 # All language packs
-TW_EXTRA_LANGUAGES := true
+# TW_EXTRA_LANGUAGES := true
+TW_DEFAULT_LANGUAGE := en-US
 
 # Brightness flags
 TW_BRIGHTNESS_PATH := /sys/class/backlight/panel0-backlight/brightness
@@ -209,6 +210,9 @@ TW_DEFAULT_BRIGHTNESS := 150
 
 # CPU temp sysfs path, if it is zero all the time
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone20/temp
+
+# Battery 
+TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/battery/capacity 
 
 # Calculate the system date and time
 TARGET_RECOVERY_QCOM_RTC_FIX := true
@@ -258,7 +262,7 @@ TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_LIBRESETPROP := true
 
 # Include magiskboot for repacking bootimg
-TW_INCLUDE_REPACKTOOLS := true
+# TW_INCLUDE_REPACKTOOLS := true
 
 # Don't mount apex files (no need for now)
 TW_EXCLUDE_APEX := true
@@ -278,4 +282,4 @@ TARGET_RECOVERY_DEVICE_MODULES += strace
 RECOVERY_BINARY_SOURCE_FILES += $(TARGET_OUT_EXECUTABLES)/strace
 
 # Log touch input
-TWRP_EVENT_LOGGING := true
+# TWRP_EVENT_LOGGING := true
