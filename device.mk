@@ -19,6 +19,12 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_vendor=true \
+    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
+    FILESYSTEM_TYPE_vendor=ext4 \
+    POSTINSTALL_OPTIONAL_vendor=true
+
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 30
 
@@ -39,6 +45,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
+    checkpoint_gc \
     cppreopts.sh \
     update_engine \
     update_verifier \
@@ -64,6 +71,15 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
 # Screen
 TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_HEIGHT := 2400
+
+# Vibrator
+TARGET_RECOVERY_DEVICE_MODULES += \
+    android.hardware.vibrator-V2-ndk_platform \
+    android.hardware.vibrator-V2-cpp
+
+RECOVERY_LIBRARY_SOURCE_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V2-cpp.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hardware.vibrator-V2-ndk_platform.so
 
 # fastbootd
 PRODUCT_PACKAGES += \
