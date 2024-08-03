@@ -33,11 +33,6 @@
         </interface>
         <fqname>@6.0::IDevicesFactory/default</fqname>
     </hal>
-    <hal format="aidl">
-        <name>android.hardware.vibrator</name>
-        <version>2</version>
-        <fqname>IVibrator/default</fqname>
-    </hal>
     <hal format="hidl">
         <name>android.hardware.audio.effect</name>
         <transport>hwbinder</transport>
