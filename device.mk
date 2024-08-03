@@ -12,9 +12,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 LOCAL_PATH := device/realme/RMX3461
 
-# A/B support
-AB_OTA_UPDATER := true
-
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
