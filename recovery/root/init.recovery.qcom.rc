@@ -33,7 +33,6 @@ on early-init
 
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
-    setprop sys.usb.configfs 1
     setprop prepdecrypt.loglevel 2
     setprop prepdecrypt.setpatch true
     # Touchpanel adaption
@@ -43,10 +42,6 @@ on property:twrp.modules.loaded=true
     # Load ADSP firmware for PMIC
     write /sys/kernel/boot_adsp/boot 1
     wait /sys/class/power_supply/battery
-
-on property:ro.boot.usbcontroller=*
-    setprop sys.usb.controller ${ro.boot.usbcontroller}
-    write /sys/class/udc/${ro.boot.usbcontroller}/device/../mode peripheral
 
 on property:ro.boot.fastboot=1
     prepdecrypt.system_mounted
