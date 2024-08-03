@@ -188,7 +188,7 @@ TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/modules)\")
 
 # Add properties
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Fixes wrong theme color
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
@@ -232,7 +232,8 @@ TW_INCLUDE_NTFS_3G := true
 # For additional flags
 TW_HAS_NO_RECOVERY_PARTITION := true
 TW_HAS_DOWNLOAD_MODE := true
-TW_FRAMERATE := 60
+TW_FRAMERATE := 120
+TW_NO_EXFAT_FUSE := true
 
 # Blacklist certain input devices that might break touch in TWRP
 TW_INPUT_BLACKLIST := hbtp_vm
