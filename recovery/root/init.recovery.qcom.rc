@@ -31,17 +31,18 @@ import /init.recovery.qcom_decrypt.rc
 on early-init
     start linkblobs
 
+on early-fs
+    write /proc/sys/kernel/sched_lib_name "magiskboot,recovery,Updater,updater,update_engine_sideload"
+    write /proc/sys/kernel/sched_lib_mask_force 255
+
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
     setprop sys.usb.configfs 1
-    setprop sys.usb.config adb
     setprop prepdecrypt.loglevel 2
     setprop prepdecrypt.setpatch true
     # Touchpanel adaption
     write /proc/touchpanel/tp_fw_update 0
-    start boot-hal-1-2
     
-
 on property:twrp.modules.loaded=true
     # Load ADSP firmware for PMIC
     write /sys/kernel/boot_adsp/boot 1
@@ -66,6 +67,7 @@ on fs
 
 on boot
     start health-hal-2-1
+    setprop sys.usb.config adb
 
 service linkblobs /system/bin/linkblobs.sh
     user root
