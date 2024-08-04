@@ -200,8 +200,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 TW_THEME := portrait_hdpi
 
 # All language packs
-# TW_EXTRA_LANGUAGES := true
-TW_DEFAULT_LANGUAGE := en-US
+TW_EXTRA_LANGUAGES := true
 
 # Brightness flags
 TW_BRIGHTNESS_PATH := /sys/class/backlight/panel0-backlight/brightness
