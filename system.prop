@@ -15,3 +15,6 @@ ro.boot.product.vendor.sku=yupik
 
 # Disable SPU usage
 vendor.gatekeeper.disable_spu=true
+
+# Battery property
+ro.charger.enable_suspend=1
