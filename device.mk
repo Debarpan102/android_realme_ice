@@ -37,6 +37,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     bootctrl.lahaina
 
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.boot.avb_version=1.0 \
+	ro.boot.vbmeta.avb_version=1.0
+
 PRODUCT_PACKAGES += \
     otapreopt_script \
     checkpoint_gc \
