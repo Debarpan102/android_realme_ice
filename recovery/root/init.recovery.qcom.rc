@@ -40,8 +40,7 @@ on init
     setprop sys.usb.configfs 1
     setprop prepdecrypt.loglevel 2
     setprop prepdecrypt.setpatch true
-    # Touchpanel adaption
-    write /proc/touchpanel/tp_fw_update 0
+    
     
 on property:twrp.modules.loaded=true
     # Load ADSP firmware for PMIC
@@ -64,6 +63,8 @@ on fs
     # Mount firmware
     mkdir /firmware
     mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro
+    # Touchpanel adaption
+    write /proc/touchpanel/tp_fw_update 0
 
 on boot
     start health-hal-2-1
