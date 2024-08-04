@@ -85,3 +85,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_EXTRA_RECOVERY_KEYS += \
     $(DEVICE_PATH)/security/realmelocal \
     $(DEVICE_PATH)/security/realmespecial
+
+TW_LOAD_VENDOR_MODULES := "adsp_loader_dlkm.ko"
+
