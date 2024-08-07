@@ -20,5 +20,5 @@ vendor.gatekeeper.disable_spu=true
 ro.charger.enable_suspend=1
 
 ro.boot.dynamic_partitions=true
-persist.sys.isUsbOtgEnabled=true
+
 ro.adb.secure=0
