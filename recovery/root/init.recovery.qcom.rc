@@ -65,6 +65,8 @@ on fs
     mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro
     # Touchpanel adaption
     write /proc/touchpanel/tp_fw_update 0
+    # To enable flashing rom/ota through adb
+    mount tmpfs tmpfs /tmp size=80%
 
 on boot
     start health-hal-2-1
