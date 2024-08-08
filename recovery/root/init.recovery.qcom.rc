@@ -68,11 +68,24 @@ on fs
     # To enable flashing rom/ota through adb
     mount tmpfs tmpfs /tmp size=80%
 
+on post-fs
+    start boot-hal-1-1
+
 on boot
     start health-hal-2-1
     setprop sys.usb.config adb
+    chmod 0777 /system/bin/postrecoveryboot.sh
+    start postrecoveryboot
+
 
 service linkblobs /system/bin/linkblobs.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
+service postrecoveryboot /system/bin/postrecoveryboot.sh
     user root
     group root
     disabled
