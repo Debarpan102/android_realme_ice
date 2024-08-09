@@ -48,6 +48,10 @@ on property:twrp.modules.loaded=true
     wait /sys/class/power_supply/battery
     start vibratorfeature-hal-service
     umount /firmware
+    # Otg
+    wait /sys/devices/virtual/oplus_chg/usb/otg_switch    
+    write /sys/devices/virtual/oplus_chg/usb/otg_switch 1 
+    setprop sys.usb.config mtp,adb
 
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
@@ -56,6 +60,13 @@ on property:ro.boot.usbcontroller=*
 on property:ro.boot.fastboot=1
     prepdecrypt.system_mounted
     prepdecrypt.vendor_mounted
+
+on property:sys.usb.config=fastboot
+   start servicemanager
+   start hwservicemanager
+   start boot-hal-1-1
+   start health-hal-2-1
+   restart fastbootd
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
