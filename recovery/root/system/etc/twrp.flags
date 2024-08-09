@@ -47,4 +47,4 @@
 /rvbmeta        emmc    /dev/block/bootdevice/by-name/vbmeta           flags=backup=1;subpartitionof=/rboot
 
 # Removable storage
-/usb_otg		vfat	/dev/block/sdg1									/dev/block/sdg		flags=fsflags=utf8;display="USB OTG";storage;wipeingui;removable
+/usb_otg		auto	/dev/block/sdg1									/dev/block/sdg		flags=fsflags=utf8;display="USB OTG";storage;wipeingui;removable
