@@ -74,8 +74,8 @@ on post-fs
 on boot
     start health-hal-2-1
     setprop sys.usb.config adb
-    chmod 0777 /system/bin/postrecoveryboot.sh
-    start postrecoveryboot
+    chmod 0777 /system/bin/unified-script.sh
+    start unified-script
 
 
 service linkblobs /system/bin/linkblobs.sh
@@ -85,7 +85,7 @@ service linkblobs /system/bin/linkblobs.sh
     oneshot
     seclabel u:r:recovery:s0
 
-service postrecoveryboot /system/bin/postrecoveryboot.sh
+service postrecoveryboot /system/bin/unified-script.sh
     user root
     group root
     disabled
