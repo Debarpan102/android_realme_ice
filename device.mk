@@ -24,6 +24,27 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Userdata
 PRODUCT_FS_COMPRESSION := 1
 
+# A/B
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+    FILESYSTEM_TYPE_system=ext4 \
+    POSTINSTALL_OPTIONAL_system=true
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_vendor=true \
+    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
+    FILESYSTEM_TYPE_vendor=ext4 \
+    POSTINSTALL_OPTIONAL_vendor=true
+
+PRODUCT_PACKAGES += \
+    otapreopt_script \
+    checkpoint_gc \
+    cppreopts.sh \
+    update_engine \
+    update_verifier \
+    update_engine_sideload
+
 # Dynamic partition stuff
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
@@ -32,6 +53,18 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     android.hardware.fastboot@1.0-impl-mock.recovery \
     fastbootd
+
+PRODUCT_PACKAGES += \
+    bootctrl.lahaina
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.boot.avb_version=1.0 \
+	ro.boot.vbmeta.avb_version=1.0
+
+# oem otacerts
+PRODUCT_EXTRA_RECOVERY_KEYS += \
+    $(DEVICE_PATH)/security/realmelocal \
+    $(DEVICE_PATH)/security/realmespecial
 
 # Take a few libraries from sources
 TARGET_RECOVERY_DEVICE_MODULES += \
@@ -58,4 +91,4 @@ PRODUCT_PACKAGES += \
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file"
 
 # Add TW_DEVICE_VERSION
-TW_DEVICE_VERSION := by SathamHussainM
+TW_DEVICE_VERSION := by Debarpan102
