@@ -40,17 +40,17 @@ on init
     setprop sys.usb.configfs 1
     setprop prepdecrypt.loglevel 2
     setprop prepdecrypt.setpatch true
-    
+    mkdir /tmp/install
+    mkdir /tmp/install/bin
     
 on property:twrp.modules.loaded=true
     # Load ADSP firmware for PMIC
     write /sys/kernel/boot_adsp/boot 1
     wait /sys/class/power_supply/battery
-    start vibratorfeature-hal-service
     umount /firmware
     # Otg
-    wait /sys/devices/virtual/oplus_chg/usb/otg_switch    
-    write /sys/devices/virtual/oplus_chg/usb/otg_switch 1 
+    # wait /sys/devices/virtual/oplus_chg/usb/otg_switch    
+    # write /sys/devices/virtual/oplus_chg/usb/otg_switch 1 
     setprop sys.usb.config mtp,adb
 
 on property:ro.boot.usbcontroller=*
@@ -77,10 +77,8 @@ on fs
     # Touchpanel adaption
     write /proc/touchpanel/tp_fw_update 0
     # To enable flashing rom/ota through adb
-    mount tmpfs tmpfs /tmp size=80%
-
-on post-fs
-    start boot-hal-1-1
+    # mount tmpfs tmpfs /tmp size=80%
+    write /sys/class/power_supply/usb/otg_switch 1
 
 on boot
     start health-hal-2-1
