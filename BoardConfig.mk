@@ -84,6 +84,23 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 # BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
+BOARD_KERNEL_CMDLINE := \
+    androidboot.console=ttyMSM0 \
+    androidboot.hardware=qcom \
+    androidboot.memcg=1 \
+    androidboot.usbcontroller=a600000.dwc3 \
+    cgroup.memory=nokmem,nosocket \
+    console=ttyMSM0,115200n8 \
+    ip6table_raw.raw_before_defrag=1 \
+    iptable_raw.raw_before_defrag=1 \
+    loop.max_part=7 \
+    lpm_levels.sleep_disabled=1 \
+    msm_rtb.filter=0x237 \
+    pcie_ports=compat \
+    service_locator.enable=1 \
+    swiotlb=0 \
+    kpti=off
+
 
 
 BOARD_BOOTIMG_HEADER_VERSION := 3
