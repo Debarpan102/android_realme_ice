@@ -100,3 +100,20 @@ service postrecoveryboot /system/bin/unified-script.sh
     disabled
     oneshot
     seclabel u:r:recovery:s0
+service vendor.qseecomd /vendor/bin/qseecomd
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+service keymaster-4-1 /vendor/bin/hw/android.hardware.keymaster@4.1-service-qti
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+
+service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
