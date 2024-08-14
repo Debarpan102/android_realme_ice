@@ -217,6 +217,7 @@ TW_HAS_NO_RECOVERY_PARTITION := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_NO_HAPTICS := true
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TW_NO_EXFAT_FUSE := true
 
 # Extra root folder
 BOARD_ROOT_EXTRA_FOLDERS := bluetooth dsp firmware persist
