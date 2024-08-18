@@ -10,7 +10,7 @@
 /dtbo           emmc    /dev/block/bootdevice/by-name/dtbo             flags=backup=1;display="Dtbo";flashimg=1
 
 /vendor_boot	emmc		/dev/block/bootdevice/by-name/vendor_boot	flags=backup=1;flashimg=1;display="Vendor Boot"
-/storage       ext4    /data/media/0                  		     		 flags=backup=1;display="Internal Storage";usermrf;fsflags="bind";removable
+# /storage       ext4    /data/media/0                  		     		 flags=backup=1;display="Internal Storage";usermrf;fsflags="bind";removable
 /system_image	emmc		/dev/block/bootdevice/by-name/system		flags=backup=1;flashimg=1
 /odm_image	emmc		/dev/block/bootdevice/by-name/odm		flags=backup=1;flashimg=1;display="ODM Image"
 /product_image	emmc		/dev/block/bootdevice/by-name/product		flags=backup=1;flashimg=1;display="Product Image"
