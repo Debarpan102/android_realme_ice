@@ -43,4 +43,4 @@
 
 # Removable storage
 /sdcard1        auto    /dev/block/mmcblk1p1  /dev/block/mmcblk1       flags=fsflags=utf8;display="microsd";storage;wipeingui;removable 
-/usb_otg        auto    /dev/block/sdg1       /dev/block/sdg           flags=display="USB-Storage";storage;wipeingui;removable;fsflags="utf8"
+/usb_otg        auto    /dev/block/sdd1       /dev/block/sdd           flags=display="USB-Storage";storage;wipeingui;removable;fsflags="utf8"
