@@ -19,6 +19,11 @@
         </interface>
         <fqname>@1.0::IMapper/ashmem</fqname>
     </hal>
+    <hal format="aidl">
+        <name>android.system.keystore2</name>
+        <version>4</version>
+        <fqname>IKeystoreService/default</fqname>
+    </hal>
     <hal format="hidl">
         <name>android.hidl.token</name>
         <transport>hwbinder</transport>
