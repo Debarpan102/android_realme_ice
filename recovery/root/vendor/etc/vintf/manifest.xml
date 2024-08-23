@@ -39,6 +39,11 @@
         <transport>hwbinder</transport>
         <fqname>@4.1::IKeymasterDevice/default</fqname>
     </hal>
+    <hal format="aidl">
+        <name>android.system.keystore2</name>
+        <version>4</version>
+        <fqname>IKeystoreService/default</fqname>
+    </hal>
     <hal format="hidl">
         <name>android.hardware.media.omx</name>
         <transport>hwbinder</transport>
