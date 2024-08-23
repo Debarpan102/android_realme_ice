@@ -21,7 +21,7 @@ PRODUCT_COPY_FILES += \
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
-
+PRODUCT_ENFORCE_VINTF_MANIFEST := true
 
 # Userdata
 PRODUCT_FS_COMPRESSION := 1
