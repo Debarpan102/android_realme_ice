@@ -75,7 +75,7 @@ QCOM_BOARD_PLATFORMS += lahaina
 
 # recovery as boot
 TARGET_NO_RECOVERY := true
-BOARD_USES_RECOVERY_AS_BOOT := true
+# BOARD_USES_RECOVERY_AS_BOOT := true
 BOARD_RAMDISK_USE_LZ4 := true
 
 # Kernel
